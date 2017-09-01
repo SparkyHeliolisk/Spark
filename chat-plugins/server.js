@@ -18,7 +18,7 @@ function clearRoom(room) {
 	}, 1000);
 }
 
-unction getLinkId(msg) {
+function getLinkId(msg) {
 	msg = msg.split(' ');
 	for (let i = 0; i < msg.length; i++) {
 		if ((/youtu\.be/i).test(msg[i])) {

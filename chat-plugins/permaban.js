@@ -1,4 +1,4 @@
-const permaDataFile = DATA_DIR + 'permaban.json';
+const permaDataFile = 'config/permaban.json';
 const PERMALOCK_CACHE_TIME = 90 * 24 * 60 * 60 * 1000;
 
 let fs = require('fs');

@@ -183,7 +183,7 @@ staff: 'authlist',
 	auth: 'authlist',
 	authlist: function(target, room, user, connection) {
 		var ignoreUsers = ['deltaskiez'];
-		fs.readFile(DATA_DIR + 'usergroups.csv', 'utf8', function(err, data) {
+		fs.readFile('config/usergroups.csv', 'utf8', function(err, data) {
 			var staff = {
 				"admins": [],
 				"leaders": [],
@@ -235,14 +235,14 @@ staff: 'authlist',
 				}
 			}
 			connection.popup('|html|' +
-				'<h3>Autoridad de Aurora</h3>' +
-				'<b><u>~Administradores' +  ' (' + staff['admins'].length + ')</u></b>:<br />' + staff['admins'].join(', ') +
-				'<br /><b><u>&Lideres' +  ' (' + staff['leaders'].length + ')</u></b>:<br />' + staff['leaders'].join(', ') +
+				'<h3>Spark Authorities</h3>' +
+				'<b><u>~Administrators' +  ' (' + staff['admins'].length + ')</u></b>:<br />' + staff['admins'].join(', ') +
+				'<br /><b><u>&Leaders' +  ' (' + staff['leaders'].length + ')</u></b>:<br />' + staff['leaders'].join(', ') +
 				'<br /><b><u>*Bots (' + staff['bots'].length + ')</u></b>:<br />' + staff['bots'].join(', ') +
-				'<br /><b><u>@Moderadores (' + staff['mods'].length + ')</u></b>:<br />' + staff['mods'].join(', ') +
-				'<br /><b><u>%Conductores (' + staff['drivers'].length + ')</u></b>:<br />' + staff['drivers'].join(', ') +
-				'<br /><b><u>+Voceros (' + staff['voices'].length + ')</u></b>:<br />' + staff['voices'].join(', ') +
-				'<br /><br />(<b>Bold</b> / <i>italic</i> = actualmente en linea)'
+				'<br /><b><u>@Moderators (' + staff['mods'].length + ')</u></b>:<br />' + staff['mods'].join(', ') +
+				'<br /><b><u>%Drivers (' + staff['drivers'].length + ')</u></b>:<br />' + staff['drivers'].join(', ') +
+				'<br /><b><u>+Voices (' + staff['voices'].length + ')</u></b>:<br />' + staff['voices'].join(', ') +
+				'<br /><br />(<b>Bold</b> / <i>italic</i> = currently online)'
 			);
 		});
 	},

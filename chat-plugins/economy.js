@@ -48,7 +48,7 @@ let shop = [
 	['Custom Color', 'Changes the color of your name (can be denied if name is too bright)', 25],
 	['Trainer Card', 'Buys a trainer card which shows information through a command. (You supply, can be refused)', 25],
         ['Avatar', 'Buys an custom avatar to be applied to your name (You supply. Images larger than 80x80 may not show correctly).', 35],
-	['Custom PM Box', 'Buys a custom PM box made by Nobunny Usagi or Ren Yukine. (Please be aware that the more complex the price could change)', 30],
+	['Custom PM Box', 'Buys a custom PM box made by AlfaStorm. (Please be aware that the more complex the price could change)', 30],
 	['Room', 'Buys a chatroom for you to own. (within reason, can be refused).', 50],
 ];
 
@@ -61,12 +61,12 @@ let shopDisplay = getShopDisplay(shop);
  * @return {String} display
  */
 function getShopDisplay(shop) {
-	let display = "<center><img src=https://i.imgur.com/umqHoq6.gif><img src=https://i.imgur.com/GBt4ioq.png width=250> <img src=https://i.imgur.com/umqHoq6.gif></center><br><div' + (!this.isOfficial ? ' class=infobox-limited' : '') + '><table style='background: #31B404; border-color: #FFFFFF; border-radius: 8px' border='1' cellspacing='0' cellpadding='5' width='100%'>" +
+	let display = "<center><img src=https://i.imgur.com/HuJ822H.gif><img src=https://i.imgur.com/SW8D5HQ.png width=250> <img src=https://i.imgur.com/HuJ822H.gif></center><br><div' + (!this.isOfficial ? ' class=infobox-limited' : '') + '><table style='background: #31B404; border-color: #FFFFFF; border-radius: 8px' border='1' cellspacing='0' cellpadding='5' width='100%'>" +
 		"<tbody><tr><th><font color=#FFFFFF face=courier>Item</font></th><th><font color=#FFFFFF face=courier>Description</font></th><th><font color=#FFFFFF face=courier>Price</font></th></tr>";
 	let start = 0;
 	while (start < shop.length) {
 		display += "<tr>" +
-			"<td align='center'><button name='send' style='background: #31B404; border-radius: 5px; border: solid, 1px, #FFFFFF; font-size: 11px; padding: 5px 10px' value='/buy " + shop[start][0] + "'><font color=#FFFFFF face=courier><b>" + shop[start][0] + "</b></font></button>" + "</td>" +
+			"<td align='center'><button name='send' style='background: #D7DF01; border-radius: 5px; border: solid, 1px, #000000; font-size: 11px; padding: 5px 10px' value='/buy " + shop[start][0] + "'><font color=#FFFFFF face=courier><b>" + shop[start][0] + "</b></font></button>" + "</td>" +
 			"<td align='center'><font color=#FFFFFF face=courier>" + shop[start][1] + "</font></td>" +
 			"<td align='center'><font color=#FFFFFF face=courier>" + shop[start][2] + "</font></td>" +
 			"</tr>";
