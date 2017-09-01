@@ -1676,10 +1676,6 @@ module.exports = {
 	commands: {
 		trivia: commands,
 		ta: commands.answer,
-<<<<<<< HEAD
-		wl: commands,
-=======
->>>>>>> fb63b334b84c62be77a5806ca251221e374668aa
 		triviahelp: [
 			"Modes:",
 			"- First: the first correct responder gains 5 points.",
