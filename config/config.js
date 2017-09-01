@@ -3,6 +3,9 @@
 // The server port - the port to run Pokemon Showdown under
 exports.port = 8080;
 
+//serverIp for parsing of custom avatars, put your server's ip here
+exports.serverIp = '';
+
 // proxyip - proxy IPs with trusted X-Forwarded-For headers
 //   This can be either false (meaning not to trust any proxies) or an array
 //   of strings. Each string should be either an IP address or a subnet given
@@ -233,6 +236,13 @@ exports.replsocketmode = 0o600;
 // forms other than all is lower RAM use (which is only a problem for Main because
 // Main is huge), and to do pinpoint hotpatching (like /nohotpatch).
 exports.disablehotpatchall = false;
+
+//github repo config
+exports.github = {
+	secret: "", // Your repo secret
+	port: "", // Desired port, must be unused and above 1000
+	rooms: ['development'], // Desired rooms
+};
 
 // permissions and groups:
 //   Each entry in `grouplist' is a seperate group. Some of the members are "special"
