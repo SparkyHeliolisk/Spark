@@ -366,16 +366,16 @@ staff: 'authlist',
 		if (!user.hasConsoleAccess(connection)) {return this.sendReply("/cssedit - Access denied.");}
 		var fsscript = require('fs');
 		if (!target) {
-			if (!fsscript.existsSync("config/custom.css")) return this.sendReply("custom.css does not exist.");
-			return this.sendReply("|raw|<div class=\"infobox\"><div class=\"infobox-limited\">" + fsscript.readFileSync"config/custom.css").toString() + "</div></div>");
+			if (!fsscript.existsSync('config/custom.css')) return this.sendReply("custom.css does not exist.");
+			return this.sendReply("|raw|<div class=\"infobox\"><div class=\"infobox-limited\">" + fsscript.readFileSync('config/custom.css').toString() + "</div></div>");
 		}
-		fsscript.writeFileSync("config/custom.css", target.toString());
+		fsscript.writeFileSync('config/custom.css', target.toString());
 		this.sendReply("custom.css successfully edited.");
 	},
 	
 	destroymodlog: function (target, room, user, connection) {
 		if (!user.hasConsoleAccess(connection)) {return this.sendReply("/destroymodlog - Access denied.");}
-		let logPath = LOGS_DIR + 'modlog/';
+		let logPath = 'logs/modlog/';
 		if (Chat.modlog && Chat.modlog[room.id]) {
 			Chat.modlog[room.id].close();
 			delete Chat.modlog[room.id];
