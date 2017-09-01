@@ -44,7 +44,7 @@ exports.commands = {
 		display: 'view',
 		view: function (target, room, user) {
 			if (!this.runBroadcast()) return;
-			let output = `<center><strong>Meadow News:</strong></center>${generateNews().join(`<hr>`)}${showSubButton(user.userid)}`;
+			let output = `<center><strong>Spark News:</strong></center>${generateNews().join(`<hr>`)}${showSubButton(user.userid)}`;
 			if (this.broadcasting) return this.sendReplyBox(`<div class="infobox-limited">${output}</div>`);
 			return user.send(`|popup||wide||html|${output}`);
 		},
@@ -80,23 +80,23 @@ exports.commands = {
 		},
 		subscribe: function (target, room, user) {
 			if (!user.named) return this.errorReply('You must choose a name before subscribing');
-			if (Db('NewsSubscribers').has(user.userid)) return this.errorReply("You are alreading subscribing Meadow News.");
+			if (Db('NewsSubscribers').has(user.userid)) return this.errorReply("You are alreading subscribing Spark News.");
 			Db('NewsSubscribers').set(user.userid, true);
-			this.sendReply("You have subscribed Meadow News.");
-			this.popupReply("|wide||html|You will receive Ember News automatically once you connect to the Meadow next time.<br><hr><center><button class='button' name='send' value ='/news'>View News</button></center>");
+			this.sendReply("You have subscribed Spark News.");
+			this.popupReply("|wide||html|You will receive Spark News automatically once you connect to the Spark server next time.<br><hr><center><button class='button' name='send' value ='/news'>View News</button></center>");
 		},
 		unsubscribe: function (target, room, user) {
 			if (!user.named) return this.errorReply('You must choose a name before unsubscribing');
-			if (!Db('NewsSubscribers').has(user.userid)) return this.errorReply("You have not subscribed Meadow News.");
+			if (!Db('NewsSubscribers').has(user.userid)) return this.errorReply("You have not subscribed Spark News.");
 			Db('NewsSubscribers').delete(user.userid);
-			this.sendReply("You have unsubscribed Meadow News.");
-			this.popupReply("|wide||html|You will no longer automatically receive Meadow News.<br><hr><center><button class='button' name='send' value='/news'>View News</button></center>");
+			this.sendReply("You have unsubscribed Spark News.");
+			this.popupReply("|wide||html|You will no longer automatically receive Spark News.<br><hr><center><button class='button' name='send' value='/news'>View News</button></center>");
 		},
 	},
-	serverannouncementshelp: ["/news view - Views current Meadow news.",
+	serverannouncementshelp: ["/news view - Views current Spark news.",
 		"/news delete [news title] - Deletes announcement with the [title]. Requires @, &, ~",
 		"/news add [news title], [news desc] - Adds news [news]. Requires @, &, ~",
-		"/news subscribe - Subscribes to Meadow News.",
-		"/news unsubscribe - Unsubscribes to Meadow News.",
+		"/news subscribe - Subscribes to Spark News.",
+		"/news unsubscribe - Unsubscribes to Spark News.",
 	],
 };
