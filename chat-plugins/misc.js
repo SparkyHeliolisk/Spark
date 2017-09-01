@@ -1,5 +1,5 @@
 /**
-Aurora Plugins
+Spark Plugins
  **/
 EM.nameColor = function (name, bold) {
         return (bold ? "<b>" : "") + "<font color=" + EM.Color(name) + ">" + (Users(name) && Users(name).connected && Users.getExact(name) ? Chat.escapeHTML(Users.getExact(name).name) : Chat.escapeHTML(name)) + "</font>" + (bold ? "</b>" : "");
@@ -10,7 +10,7 @@ const moment = require('moment');
 
 EM.tells = {};
 try {
-	EM.tells = JSON.parse(fs.readFileSync(DATA_DIR + 'tells.json', 'utf*'));
+	EM.tells = JSON.parse(fs.readFileSync('config/tells.json', 'utf8'));
 } catch (e) {}
 
 const MAX_TELLS = 4;
@@ -30,7 +30,7 @@ EM.getTells = function(target, room, user, connection) {
 			tell[i].forEach(msg => target.send('|pm| Unread Messages|' + target.getIdentity() + '|/raw ' + msg));
 		}
 		delete EM.tells[target.userid];
-		fs.writeFileSync(DATA_DIR + 'tells.json', JSON.stringify(EM.tells));
+		fs.writeFileSync('config/tells.json', JSON.stringify(EM.tells));
 	};
 const messages = [
     "has used explosion!",
@@ -48,7 +48,7 @@ const messages = [
  exports.commands = {
 	hoster: {
         	add: function (target, room, user, userid) {
-			if (!this.userid == 'alphaicy') return this.errorReply('This command can only be used by DeltaSkiez');
+			if (!this.userid == 'alfastorm') return this.errorReply('This command can only be used by AlfaStorm');
 			let hoster = toId(target);
 			if (!hoster) return this.parse('/hoster');
 			if (isHoster(hoster)) return this.errorReply(hoster + ' is already a vip.');
@@ -117,15 +117,11 @@ const messages = [
 	 
 	credit: 'credits',
 	credits: function (target, room, user) {
-		let popup = "|html|" + "<font size=5><u><b>Creditos de Aurora</b></u></font><br />" +
+		let popup = "|html|" + "<font size=5><u><b>Spark Server Credits</b></u></font><br />" +
 			"<br />" +
 			"<u><b>Server Maintainers:</u></b><br />" +
-			"- " + EM.nameColor('DeltaSkiez', true) + " (Owner, Sysadmin, Development)<br />" +
-			"- " + EM.nameColor('Nobunny Usagi', true) + " (Admin, Server CSS, Development)<br />" +
-			"<br />" +
-			"<u><b>Major Contributors:</b></u><br />" +
-			"- " + EM.nameColor('HurriKaine', true) + " (Admin, Lead Policy)<br />" +
-			"- " + EM.nameColor('Blooded Kitten', true) + " (Admin, Management)<br />" +
+			"- " + EM.nameColor('SparkyHeliolisk', true) + " (Owner, Sysop)<br />" +
+			"- " + EM.nameColor('AlfaStorm', true) + " (Development, Sysop)<br />" +
 			"<br />" +
 			"<u><b>Special Thanks:</b></u><br />" +
 			"- Our Staff Members<br />" +
@@ -168,7 +164,7 @@ const messages = [
 			EM.tells[id][user.userid] = [msg];
 		}
 
-		fs.writeFileSync(DATA_DIR + 'tells.json', JSON.stringify(EM.tells));
+		fs.writeFileSync('config/tells.json', JSON.stringify(EM.tells));
 				if (this.message.startsWith(`/tell`)) {
 		user.send('|pm| ' + this.targetUsername + '|' + this.user.getIdentity() + '|/raw ' + '<small>[' + moment().format("HH:mm:ss") + ']</small>' + userSymbol + '<strong class="username"><span style = "color:' + EM.Color(user.userid) + '">' + user.name + ':</span></strong> ' + Chat.escapeHTML(target));
 		
@@ -339,7 +335,7 @@ staff: 'authlist',
 			matching = false;
 		}
 		let topMsg = "Displaying the last " + numLines + " lines of transactions:\n";
-		let file = path.join(LOGS_DIR + 'errors.txt');
+		let file = path.join('logs/errors.txt');
 		fs.exists(file, function (exists) {
 			if (!exists) return connection.popup("There are no errors.");
 			fs.readFile(file, 'utf8', function (err, data) {
@@ -370,10 +366,10 @@ staff: 'authlist',
 		if (!user.hasConsoleAccess(connection)) {return this.sendReply("/cssedit - Access denied.");}
 		var fsscript = require('fs');
 		if (!target) {
-			if (!fsscript.existsSync(DATA_DIR + "custom.css")) return this.sendReply("custom.css does not exist.");
-			return this.sendReply("|raw|<div class=\"infobox\"><div class=\"infobox-limited\">" + fsscript.readFileSync(DATA_DIR + "custom.css").toString() + "</div></div>");
+			if (!fsscript.existsSync("config/custom.css")) return this.sendReply("custom.css does not exist.");
+			return this.sendReply("|raw|<div class=\"infobox\"><div class=\"infobox-limited\">" + fsscript.readFileSync"config/custom.css").toString() + "</div></div>");
 		}
-		fsscript.writeFileSync(DATA_DIR + "custom.css", target.toString());
+		fsscript.writeFileSync("config/custom.css", target.toString());
 		this.sendReply("custom.css successfully edited.");
 	},
 	
