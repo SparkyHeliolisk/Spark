@@ -61,14 +61,14 @@ let shopDisplay = getShopDisplay(shop);
  * @return {String} display
  */
 function getShopDisplay(shop) {
-	let display = "<center><img src=https://i.imgur.com/HuJ822H.gif><img src=https://i.imgur.com/SW8D5HQ.png width=250> <img src=https://i.imgur.com/HuJ822H.gif></center><br><div' + (!this.isOfficial ? ' class=infobox-limited' : '') + '><table style='background: #31B404; border-color: #FFFFFF; border-radius: 8px' border='1' cellspacing='0' cellpadding='5' width='100%'>" +
-		"<tbody><tr><th><font color=#FFFFFF face=courier>Item</font></th><th><font color=#FFFFFF face=courier>Description</font></th><th><font color=#FFFFFF face=courier>Price</font></th></tr>";
+	let display = "<center><img src=https://i.imgur.com/HuJ822H.gif><img src=https://i.imgur.com/SW8D5HQ.png width=250> <img src=https://i.imgur.com/HuJ822H.gif></center><br><div' + (!this.isOfficial ? ' class=infobox-limited' : '') + '><table style='background: #D7DF01; border-color: #000000; border-radius: 8px' border='1' cellspacing='0' cellpadding='5' width='100%'>" +
+		"<tbody><tr><th><font color=#000000 face=courier>Item</font></th><th><font color=#000000 face=courier>Description</font></th><th><font color=#FFFFFF face=courier>Price</font></th></tr>";
 	let start = 0;
 	while (start < shop.length) {
 		display += "<tr>" +
-			"<td align='center'><button name='send' style='background: #D7DF01; border-radius: 5px; border: solid, 1px, #000000; font-size: 11px; padding: 5px 10px' value='/buy " + shop[start][0] + "'><font color=#FFFFFF face=courier><b>" + shop[start][0] + "</b></font></button>" + "</td>" +
-			"<td align='center'><font color=#FFFFFF face=courier>" + shop[start][1] + "</font></td>" +
-			"<td align='center'><font color=#FFFFFF face=courier>" + shop[start][2] + "</font></td>" +
+			"<td align='center'><button name='send' style='background: #D7DF01; border-radius: 5px; border: solid, 1px, #000000; font-size: 11px; padding: 5px 10px' value='/buy " + shop[start][0] + "'><font color=#000000 face=courier><b>" + shop[start][0] + "</b></font></button>" + "</td>" +
+			"<td align='center'><font color=#000000 face=courier>" + shop[start][1] + "</font></td>" +
+			"<td align='center'><font color=#000000 face=courier>" + shop[start][2] + "</font></td>" +
 			"</tr>";
 		start++;
 	}
@@ -171,11 +171,11 @@ function handleBoughtItem(item, user, cost) {
 		this.sendReply('You can now set your team!');
 	} else {
 		let msg = '**' + user.name + " has bought " + item + ".**";
-		Rooms.rooms.get("staff").add('|c|~Meadow Server|' + msg);
+		Rooms.rooms.get("staff").add('|c|~Spark Server|' + msg);
 		Rooms.rooms.get("staff").update();
 		Users.users.forEach(function (user) {
 			if (user.group === '~' || user.group === '&' || user.group === '@') {
-				user.send('|pm|~Meadow Server|' + user.getIdentity() + '|' + msg);
+				user.send('|pm|~Spark Server|' + user.getIdentity() + '|' + msg);
 			}
 		});
 	}
