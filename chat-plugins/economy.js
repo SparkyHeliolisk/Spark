@@ -62,7 +62,7 @@ let shopDisplay = getShopDisplay(shop);
  */
 function getShopDisplay(shop) {
 	let display = "<center><img src=https://i.imgur.com/HuJ822H.gif><img src=https://i.imgur.com/SW8D5HQ.png width=250> <img src=https://i.imgur.com/HuJ822H.gif></center><br><div' + (!this.isOfficial ? ' class=infobox-limited' : '') + '><table style='background: #D7DF01; border-color: #000000; border-radius: 8px' border='1' cellspacing='0' cellpadding='5' width='100%'>" +
-		"<tbody><tr><th><font color=#000000 face=courier>Item</font></th><th><font color=#000000 face=courier>Description</font></th><th><font color=#FFFFFF face=courier>Price</font></th></tr>";
+		"<tbody><tr><th><font color=#000000 face=courier>Item</font></th><th><font color=#000000 face=courier>Description</font></th><th><font color=#000000 face=courier>Price</font></th></tr>";
 	let start = 0;
 	while (start < shop.length) {
 		display += "<tr>" +
