@@ -430,7 +430,7 @@ staff: 'authlist',
 		let obj = Db('DailyBonus').get(user.latestIp, [1, Date.now()]);
 		let nextBonus = Date.now() - obj[1];
 		if ((86400000 - nextBonus) <= 0) return EM.giveDailyReward(user);
-		return this.sendReply('Your next bonus is ' + obj[0] + ' ' + (obj[0] === 1 ? currencyName : currencyPlural) + ' in ' + Chat.toDurationString(Math.abs(86400000 - nextBonus)));
+		return this.sendReply('Your next bonus is ' + obj[0] + ' ' + (obj[0] === 1 ? moneyName : moneyPlural) + ' in ' + Chat.toDurationString(Math.abs(86400000 - nextBonus)));
 	},
 	roomlist: function (target, room, user) {
 		let header = ['<b><font color="#1aff1a" size="2">Total users connected: ' + Rooms.global.userCount + '</font></b><br />'],
