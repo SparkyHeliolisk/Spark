@@ -100,7 +100,7 @@ exports.commands = {
 	customcolorhelp: [
 		"Commands Include:",
 		"/customcolor set [user], [hex] - Gives [user] a custom color of [hex]",
-		"/customcolor delete [user], delete - Deletes a user's custom color",
+		"/customcolor delete [user] - Deletes a user's custom color",
 		"/customcolor reload - Reloads colours.",
 		"/customcolor preview [user], [hex] - Previews what that username looks like with [hex] as the color.",
 	],
