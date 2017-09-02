@@ -59,7 +59,7 @@ function logPointsUser(user, league, amount, reason) {
 
 function log(message) {
 	if (!message) return false;
-	fs.appendFile(LOGS_DIR + 'leagues.txt', '[' + new Date().toUTCString() + '] ' + message + '\n');
+	fs.appendFile('logs/leagues.txt', '[' + new Date().toUTCString() + '] ' + message + '\n');
 }
 
 function leaguePM(message, league) {
@@ -67,13 +67,13 @@ function leaguePM(message, league) {
 	if (!leagues[leagueid]) return;
 	for (let u in leagues[leagueid].users) {
 		if (!Users(leagues[leagueid].users[u]) || !Users(leagues[leagueid].users[u]).connected) continue;
-		Users(leagues[leagueid].users[u]).send("|pm|~Meadow Server|~|/raw " + message);
+		Users(leagues[leagueid].users[u]).send("|pm|~Spark Server|~|/raw " + message);
 	}
 }
 
 function leagueLog(message, league) {
        if (!message) return;
-       let file = path.join(LOGS_DIR + 'league.txt');
+       let file = path.join('logs/league.txt');
        let date = "[" + new Date().toUTCString() + "] ";
        let msg = message + "\n";
        fs.appendFile(file, date + msg);
