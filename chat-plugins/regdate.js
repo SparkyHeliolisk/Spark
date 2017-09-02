@@ -78,6 +78,37 @@ EM.reloadCSS = function () {
 	http.get(options);
 };
 
+//Daily Rewards System by Lord Haji, Credit to SpacialGaze
+EM.giveDailyReward = function (user) {
+	if (!user) return false;
+	let reward = 0, time = Date.now();
+	for (let ip in user.ips) {
+		let cur = Db('DailyBonus').get(ip);
+		if (!cur) {
+			cur = [1, Date.now()];
+			Db('DailyBonus').set(ip, cur);
+		}
+		if (cur[0] < reward || !reward) reward = cur[0];
+		if (cur[1] < time) time = cur[1];
+	}
+	if (Date.now() - time < 86400000) return;
+	if (Date.now() - time > 172800000) reward = 1;
+	// Loop again to set the ips values
+	for (let ip in user.ips) {
+		Db('DailyBonus').set(ip, [(reward + 1 < 8 ? reward + 1 : 1), Date.now()]);
+	}
+	Economy.writeMoney(user.userid, reward);
+	user.send('|popup||wide||html| <center><u><b><font size="3">Spark Daily Bonus</font></b></u><br>You have been awarded ' + reward + ' Bucks.<br>' + showDailyRewardAni(reward) + '<br>Because you have connected to the server for the past ' + (reward === 1 ? 'Day' : reward + ' Days') + '.</center>');
+};
+
 EM.randomString = function (length) {
 	return Math.round((Math.pow(36, length + 1) - Math.random() * Math.pow(36, length))).toString(36).slice(1);
 };
+
+function showDailyRewardAni(streak) {
+	let output = '';
+	for (let i = 1; i <= streak; i++) {
+		output += "<img src='http://i.imgur.com/ZItWCLB.png' width='16' height='16'> ";
+	}
+	return output;
+}
