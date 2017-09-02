@@ -254,7 +254,7 @@ function cacheGroupData() {
 		punishgroups.locked = {
 			name: 'Locked',
 			id: 'locked',
-			symbol: '‽',
+			symbol: '\u203d',
 		};
 	}
 	if (!punishgroups.muted) {
@@ -456,7 +456,7 @@ class User {
 	}
 	getIdentity(roomid) {
 		if (this.locked || this.namelocked) {
-			const lockedSymbol = (Config.punishgroups && Config.punishgroups.locked ? Config.punishgroups.locked.symbol : '‽');
+			const lockedSymbol = (Config.punishgroups && Config.punishgroups.locked ? Config.punishgroups.locked.symbol : '\u203d');
 			return lockedSymbol + this.name;
 		}
 		if (roomid && roomid !== 'global') {
