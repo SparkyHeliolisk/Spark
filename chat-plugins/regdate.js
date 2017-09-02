@@ -67,6 +67,17 @@ EM.parseMessage = function (message) {
 	return message;
 };
 
+EM.reloadCSS = function () {
+	const cssPath = 'spark'; // This should be the server id if Config.serverid doesn't exist. Ex: 'serverid'
+	let options = {
+		host: 'play.pokemonshowdown.com',
+		port: 80,
+		path: '/customcss.php?server=' + (Config.serverid || cssPath),
+		method: 'GET',
+	};
+	http.get(options);
+};
+
 EM.randomString = function (length) {
 	return Math.round((Math.pow(36, length + 1) - Math.random() * Math.pow(36, length))).toString(36).slice(1);
 };
