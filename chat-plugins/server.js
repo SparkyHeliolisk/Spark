@@ -283,6 +283,20 @@ exports.commands = {
 	},
 	chatdeclarehelp: ["/cdeclare [message] - Anonymously announces a message to all chatrooms on the server. Requires: ~"],
 
+	fj: 'forcejoin',
+	forcejoin: function (target, room, user) {
+		if (!user.can('root')) return false;
+		if (!target) return this.parse('/help forcejoin');
+		let parts = target.split(',');
+		if (!parts[0] || !parts[1]) return this.parse('/help forcejoin');
+		let userid = toId(parts[0]);
+		let roomid = toId(parts[1]);
+		if (!Users.get(userid)) return this.sendReply("User not found.");
+		if (!Rooms.get(roomid)) return this.sendReply("Room not found.");
+		Users.get(userid).joinRoom(roomid);
+	},
+	forcejoinhelp: ["/forcejoin [target], [room] - Forces a user to join a room"],
+
 	hide: 'hideauth',
 	hideauth: function (target, room, user) {
 		if (!this.can('lock')) return false;
