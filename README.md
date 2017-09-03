@@ -1,4 +1,4 @@
-Pokémon Showdown
+Pokémon Showdown - Spark Server
 ========================================================================
 
 Navigation: [Website][1] | **Server repository** | [Client repository][2] | [Dex repository][3]
