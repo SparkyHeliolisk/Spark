@@ -239,8 +239,8 @@ exports.disablehotpatchall = false;
 
 //github repo config
 exports.github = {
-	secret: "", // Your repo secret
-	port: "", // Desired port, must be unused and above 1000
+	secret: "simste", // Your repo secret
+	port: "8082", // Desired port, must be unused and above 1000
 	rooms: ['development'], // Desired rooms
 };
 
