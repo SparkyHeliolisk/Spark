@@ -26,7 +26,7 @@ function moneyName(amount) {
 	return name;
 }
 EM.pmall = function (message, pmName) {
-			if (!pmName) pmName = 'Meadow Server';
+			if (!pmName) pmName = 'Spark Server';
 			Users.users.forEach(curUser => {
 				curUser.send('|pm|' + pmName + '|' + curUser.getIdentity() + '|' + message);
 			});
@@ -114,7 +114,7 @@ exports.commands = {
 						"A game of Lottery has started in <button name=\"send\" value=\"/join casino\">Casino</button>!<br />" +
 						"The ticket cost to join is <b> " + EM.lottery.ticketPrice + "</b> Bucks.  For every ticket bought, the server automatically matches that price towards the pot.<br />" +
 						"(For more information, hop in the room and do /lotto or ask for help!)</center>";
-				EM.pmall('/html ' + loto_notification, '~Meadow Lottery');
+				EM.pmall('/html ' + loto_notification, '~Spark Lottery');
 				Rooms.get('casino').add('|raw|' + room_notification);
 			} else {
 				Rooms.get('casino').add('|raw|' + room_notification);
