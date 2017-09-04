@@ -39,7 +39,11 @@ function showTitle(userid) {
 
 function bg(userid) {
 	userid = toId(userid);
-	if (Db('backgrounds').has(userid));
+	if (Db('backgrounds').has(userid)); {
+		let bg = Db('backgrounds').get(userid);
+		if (!Db('backgrounds').has(buddy)) return '<div>';
+	}
+	return '';
 }
 
 function devCheck(user) {
@@ -167,7 +171,7 @@ exports.commands = {
 	setbg: function (target, room, user) {
 		if (!this.can('broadcast')) return false;
 		let parts = target.split(',');
-		if (!parts[1]) return this.errorReply('USAGE: /setbackground (user), (link)');
+		if (!parts[1]) return this.errorReply('Usage: /setbackground (user), (link)');
 		let targ = parts[0].toLowerCase().trim();
 		let link = parts[1].trim();
 		Db('backgrounds').set(targ, link);
@@ -179,7 +183,7 @@ exports.commands = {
 	deletebg: function (target, room, user) {
 		if (!this.can('broadcast')) return false;
 		let targ = target.toLowerCase();
-		if (!target) return this.errorReply('USAGE: /deletebackground (user)');
+		if (!target) return this.errorReply('Usage: /deletebackground (user)');
 		if (!Db('backgrounds').has(targ)) return this.errorReply('This user does not have a custom background.');
 		Db('backgrounds').delete(targ);
 		this.sendReply('This users background has deleted.');
@@ -333,7 +337,6 @@ exports.commands = {
 		function showProfile() {
 			Economy.readMoney(toId(username), currency => {
 				let profile = '';
-				profile += '<div style="background-image :url(' + bg(username) + '); background-repeat: no-repeat;background-size: cover;">';
 				profile += showBadges(toId(username));
 				profile += '<img src="' + avatar + '" height="80" width="80" align="left">';
 				profile += '&nbsp;<font color="#24678d"><b>Name:</b></font> ' + EM.nameColor(username, true) + '&nbsp;' + getFlag(toId(username)) + ' ' + showTitle(username) + '<br />';
@@ -343,6 +346,8 @@ exports.commands = {
 				profile += '&nbsp;<font color="#24678d"><b>Last Seen:</b></font> ' + getLastSeen(toId(username)) + '</font><br />';
 				if (Db('friendcodes').has(toId(username))) {
 					profile += '&nbsp;<div style="display:inline-block;height:5px;width:80px;"></div><font color="#24678d"><b>Friend Code:</b></font> ' + Db('friendcodes').get(toId(username));
+				if (Db('backgrounds').has(targ, link(username))) {
+					profile += '<div style="background-image :url(' + Db('backgrounds').get(targ, link(username)) + '); background-repeat: no-repeat;background-size: cover;">';
 				}
 				profile += '<br clear="all">';
 				self.sendReplyBox(profile);
