@@ -49,6 +49,7 @@ let shop = [
 	['Trainer Card', 'Buys a trainer card which shows information through a command. (You supply, can be refused)', 25],
         ['Avatar', 'Buys an custom avatar to be applied to your name (You supply. Images larger than 80x80 may not show correctly).', 35],
 	['Custom PM Box', 'Buys a custom PM box made by AlfaStorm. (Please be aware that the more complex the price could change)', 30],
+	['Roomshop', 'Buys a roomshop to be used in your own room. (Use it responsibly as it can be taken away if abused)', 40],
 	['Room', 'Buys a chatroom for you to own. (within reason, can be refused).', 50],
 ];
 
