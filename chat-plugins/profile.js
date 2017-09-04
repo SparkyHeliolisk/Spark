@@ -37,6 +37,11 @@ function showTitle(userid) {
 	return '';
 }
 
+function bg(userid) {
+	userid = toId(userid);
+	if (Db('backgrounds').has(userid));
+}
+
 function devCheck(user) {
 	if (isDev(user)) return '<font color="#009320">(<b>Developer</b>)</font>';
 	return '';
@@ -156,6 +161,28 @@ exports.commands = {
 				'</div>'
 			);
 		},
+	},
+	bg: 'setbg',
+	setbackground: 'setbg',
+	setbg: function (target, room, user) {
+		if (!this.can('broadcast')) return false;
+		let parts = target.split(',');
+		if (!parts[1]) return this.errorReply('USAGE: /setbackground (user), (link)');
+		let targ = parts[0].toLowerCase().trim();
+		let link = parts[1].trim();
+		Db('backgrounds').set(targ, link);
+		this.sendReply('This users background has been set to : ');
+		this.parse('/profile ' + targ);
+	},
+
+	'deletebackground': 'deletebg',
+	deletebg: function (target, room, user) {
+		if (!this.can('broadcast')) return false;
+		let targ = target.toLowerCase();
+		if (!target) return this.errorReply('USAGE: /deletebackground (user)');
+		if (!Db('backgrounds').has(targ)) return this.errorReply('This user does not have a custom background.');
+		Db('backgrounds').delete(targ);
+		this.sendReply('This users background has deleted.');
 	},
 	title: 'customtitle',
 	customtitle: {
@@ -306,6 +333,7 @@ exports.commands = {
 		function showProfile() {
 			Economy.readMoney(toId(username), currency => {
 				let profile = '';
+				profile += '<div style="background-image :url(' + bg(username) + '); background-repeat: no-repeat;background-size: cover;">';
 				profile += showBadges(toId(username));
 				profile += '<img src="' + avatar + '" height="80" width="80" align="left">';
 				profile += '&nbsp;<font color="#24678d"><b>Name:</b></font> ' + EM.nameColor(username, true) + '&nbsp;' + getFlag(toId(username)) + ' ' + showTitle(username) + '<br />';
