@@ -337,6 +337,7 @@ exports.commands = {
 				profile += '&nbsp;<font color="#24678d"><b>Last Seen:</b></font> ' + getLastSeen(toId(username)) + '</font><br />';
 				if (Db('friendcodes').has(toId(username))) {
 					profile += '&nbsp;<div style="display:inline-block;height:5px;width:80px;"></div><font color="#24678d"><b>Friend Code:</b></font> ' + Db('friendcodes').get(toId(username));
+				}
 				if (Db('backgrounds').has(targ, link(username))) {
 					profile += '<div style="background-image :url(' + Db('backgrounds').get(targ, link(username)) + '); background-repeat: no-repeat;background-size: cover;">';
 				}
