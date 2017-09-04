@@ -130,7 +130,7 @@ exports.commands = {
 				return user.send("|popup||wide||html|" + output);
 			}
 
-			data = targetRoom + "|" + date + "|" + fs.readFileSync(DATA_DIR + 'custom.css', 'utf8') + "\n" + data;
+			data = targetRoom + "|" + date + "|" + fs.readFileSync('config/custom.css', 'utf8') + "\n" + data;
 
 			fs.writeFile('static/logs/' + filename, data, err => {
 				if (err) return this.errorReply("/viewlogs - " + err);
