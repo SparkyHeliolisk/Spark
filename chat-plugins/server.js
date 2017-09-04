@@ -301,17 +301,20 @@ exports.commands = {
 
 	htmlgdeclare: 'htmlglobaldeclare',
 	htmlglobaldeclare: function (target, room, user) {
-		if (!target) return this.parse('/help htmldeclare');
+		if (!target) return this.parse('/help htmlglobaldeclare');
 		if (!this.can('gdeclare')) return false;
-		if (!this.canTalk()) return;
 		target = this.canHTML(target);
 		if (!target) return;
 
-		this.add(`|notify|${room.title} announcement!|${Chat.stripHTML(target)}`);
-		this.add(`|raw|<div class="broadcast-blue"><b>${target}</b></div>`);
+		Rooms.rooms.forEach((curRoom, id) => {
+			if (id !== 'global') curRoom.addRaw(`<div class="broadcast-blue"><b>${target}</b></div>`).update();
+		});
+		Users.users.forEach(u => {
+			if (u.connected) u.send(`|pm|~|${u.group}${u.name}|/raw <div class="broadcast-blue"><b>${target}</b></div>`);
+		});
 		this.logModCommand(`${user.name} HTML-declared: ${target}`);
 	},
-	globalhtmldeclarehelp: ["/globalhtmldeclare [message] - Anonymously announces a message using safe HTML to every room on the server. Requires: ~"],
+	htmlglobaldeclarehelp: ["/htmlglobaldeclare [message] - Anonymously announces a message using safe HTML to every room on the server. Requires: ~"],
 
 	fj: 'forcejoin',
 	forcejoin: function (target, room, user) {
