@@ -25,7 +25,7 @@ function loadEmoticons() {
 loadEmoticons();
 
 function saveEmoticons() {
-	fs.writeFileSync'config/emoticons.json', JSON.stringify(emoticons));
+	fs.writeFileSync('config/emoticons.json', JSON.stringify(emoticons));
 	emoteRegex = [];
 	for (let emote in emoticons) {
 		emoteRegex.push(emote);
