@@ -118,7 +118,7 @@ exports.commands = {
 		if (!this.can('pmall')) return false;
 		if (!target) return this.parse('/help pmall');
 
-		let pmName = ' Server Info [Do Not Respond!]';
+		let pmName = '~Spark Server';
 		Users.users.forEach(curUser => {
 			let message = '|pm|' + pmName + '|' + curUser.getIdentity() + '|' + target;
 			curUser.send(message);
@@ -132,7 +132,7 @@ exports.commands = {
 		if (!this.can('forcewin')) return false;
 		if (!target) return this.parse('/help pmallstaff');
 
-		let pmName = ' InFo.Staff';
+		let pmName = '~Spark Server';
 
 		Users.users.forEach(curUser => {
 			if (!curUser.isStaff) return;
@@ -141,7 +141,24 @@ exports.commands = {
 		});
 	},
 	pmallstaffhelp: ["/pmallstaff [message]"],
-	
+
+	pmroom: 'rmall',
+	roompm: 'rmall',
+	rmall: function (target, room, user) {
+		if (!this.can('declare', null, room)) return this.errorReply("/rmall - Access denied.");
+		if (room.id === 'lobby') return this.errorReply("This command cannot be used in Lobby.");
+		if (!target) return this.sendReply("/rmall [message] - Sends a pm to all users in the room.");
+		target = target.replace(/<(?:.|\n)*?>/gm, '');
+
+		let pmName = '~Spark Server';
+
+		for (let i in room.users) {
+			let message = '|pm|' + pmName + '|' + room.users[i].getIdentity() + '| ' + target;
+			room.users[i].send(message);
+		}
+		this.privateModCommand('(' + Chat.escapeHTML(user.name) + ' mass PMd: ' + target + ')');
+	},
+
 	seen: function (target, room, user) {
 		if (!this.runBroadcast()) return;
 		if (!target) return this.parse('/help seen');
