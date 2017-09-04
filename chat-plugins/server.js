@@ -146,7 +146,6 @@ exports.commands = {
 	roompm: 'rmall',
 	rmall: function (target, room, user) {
 		if (!this.can('declare', null, room)) return this.errorReply("/rmall - Access denied.");
-		if (room.id === 'lobby') return this.errorReply("This command cannot be used in Lobby.");
 		if (!target) return this.sendReply("/rmall [message] - Sends a pm to all users in the room.");
 		target = target.replace(/<(?:.|\n)*?>/gm, '');
 
@@ -156,7 +155,7 @@ exports.commands = {
 			let message = '|pm|' + pmName + '|' + room.users[i].getIdentity() + '| ' + target;
 			room.users[i].send(message);
 		}
-		this.privateModCommand('(' + Chat.escapeHTML(user.name) + ' mass PMd: ' + target + ')');
+		this.privateModCommand('(' + Chat.escapeHTML(user.name) + ' mass room PM\'ed: ' + target + ')');
 	},
 
 	seen: function (target, room, user) {
