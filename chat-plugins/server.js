@@ -299,8 +299,8 @@ exports.commands = {
 	},
 	chatdeclarehelp: ["/cdeclare [message] - Anonymously announces a message to all chatrooms on the server. Requires: ~"],
 
-	ghtmldeclare: 'globalhtmldeclare',
-	globalhtmldeclare: function (target, room, user) {
+	htmlgdeclare: 'htmlglobaldeclare',
+	htmlglobaldeclare: function (target, room, user) {
 		if (!target) return this.parse('/help htmldeclare');
 		if (!this.can('gdeclare')) return false;
 		if (!this.canTalk()) return;
