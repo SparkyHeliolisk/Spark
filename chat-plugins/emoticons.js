@@ -9,12 +9,12 @@ let emoticons = {'feelsbd': 'http://i.imgur.com/YyEdmwX.png'};
 let emoteRegex = new RegExp('feelsbd', 'g');
 EM.ignoreEmotes = {};
 try {
-	EM.ignoreEmotes = JSON.parse(fs.readFileSync(DATA_DIR + 'ignoreemotes.json', 'utf8'));
+	EM.ignoreEmotes = JSON.parse(fs.readFileSync('config/ignoreemotes.json', 'utf8'));
 } catch (e) {}
 
 function loadEmoticons() {
 	try {
-		emoticons = JSON.parse(fs.readFileSync(DATA_DIR + 'emoticons.json', 'utf8'));
+		emoticons = JSON.parse(fs.readFileSync('config/emoticons.json', 'utf8'));
 		emoteRegex = [];
 		for (let emote in emoticons) {
 			emoteRegex.push(escapeRegExp(emote));
@@ -25,7 +25,7 @@ function loadEmoticons() {
 loadEmoticons();
 
 function saveEmoticons() {
-	fs.writeFileSync(DATA_DIR + 'emoticons.json', JSON.stringify(emoticons));
+	fs.writeFileSync'config/emoticons.json', JSON.stringify(emoticons));
 	emoteRegex = [];
 	for (let emote in emoticons) {
 		emoteRegex.push(emote);
