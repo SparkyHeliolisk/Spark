@@ -67,6 +67,16 @@ EM.parseMessage = function (message) {
 	return message;
 };
 
+EM.messageSeniorStaff = function (message, pmName, from) {
+	pmName = (pmName ? pmName : '~Spark Server');
+	from = (from ? ' (PM from ' + from + ')' : '');
+	Users.users.forEach(curUser => {
+		if (curUser.group === '~' || curUser.group === '&') {
+			curUser.send('|pm|' + pmName + '|' + curUser.getIdentity() + '|' + message + from);
+		}
+	});
+};
+
 EM.reloadCSS = function () {
 	const cssPath = 'spark'; // This should be the server id if Config.serverid doesn't exist. Ex: 'serverid'
 	let options = {
