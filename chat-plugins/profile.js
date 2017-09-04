@@ -37,15 +37,6 @@ function showTitle(userid) {
 	return '';
 }
 
-function bg(userid) {
-	userid = toId(userid);
-	if (Db('backgrounds').has(userid)); {
-		let bg = Db('backgrounds').get(userid);
-		if (!Db('backgrounds').has(buddy)) return '<div>';
-	}
-	return '';
-}
-
 function devCheck(user) {
 	if (isDev(user)) return '<font color="#009320">(<b>Developer</b>)</font>';
 	return '';
