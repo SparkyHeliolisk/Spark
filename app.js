@@ -108,6 +108,8 @@ global.Db = require('origindb')('config/db');
 
 global.EM = {};
 
+global.sqlite3 = require('sqlite3');
+
 global.Rooms = require('./rooms');
 
 global.Verifier = require('./verifier');
