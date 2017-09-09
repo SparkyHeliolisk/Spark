@@ -1153,10 +1153,15 @@ exports.commands = {
 		}
 
 		let groupName = Config.groups[nextGroup].name || "regular user";
+		if (nextGroup === '#' && !user.can('pban')) return this.errorReply("Try /roomowner instead.");
+		if (room.auth[userid] && room.auth[userid] === '#' && !user.can('pban')) {
+			if (room.founder && room.founder !== user.userid) return this.errorReply("You do not have permission to use this command.  If you are the Room Founder and trying to demote another RO, try /deroomowner [user].");
+		}
+
 		if ((room.auth[userid] || Config.groupsranking[0]) === nextGroup) {
 			return this.errorReply(`User '${name}' is already a ${groupName} in this room.`);
 		}
-		if (!user.can('makeroom') && !user.can('roomleader', null, room)) {
+		if (!user.can('makeroom') || !user.can('roomleader', null, room)) {
 			if (currentGroup !== ' ' && !user.can('room' + (Config.groups[currentGroup] ? Config.groups[currentGroup].id : 'voice'), null, room)) {
 				return this.errorReply(`/${cmd} - Access denied for promoting/demoting from ${(Config.groups[currentGroup] ? Config.groups[currentGroup].name : "an undefined group")}.`);
 			}
