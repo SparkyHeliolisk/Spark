@@ -1142,11 +1142,7 @@ class RandomTeams extends Dex.ModdedDex {
 				} else if (ability === 'Blaze') {
 					rejectAbility = !counter['Fire'];
 				} else if (ability === 'Chlorophyll') {
-<<<<<<< HEAD
-					rejectAbility = !hasMove['sunnyday'];
-=======
 					rejectAbility = !hasMove['sunnyday'] && !teamDetails['sun'];
->>>>>>> d704b90f5aa865c87828946bc23cf7bec3fb30f5
 				} else if (ability === 'Compound Eyes' || ability === 'No Guard') {
 					rejectAbility = !counter['inaccurate'];
 				} else if (ability === 'Defiant' || ability === 'Moxie') {
@@ -1155,11 +1151,8 @@ class RandomTeams extends Dex.ModdedDex {
 					rejectAbility = true;
 				} else if (ability === 'Gluttony') {
 					rejectAbility = !hasMove['bellydrum'];
-<<<<<<< HEAD
-=======
 				} else if (ability === 'Ice Body') {
 					rejectAbility = !teamDetails['hail'];
->>>>>>> d704b90f5aa865c87828946bc23cf7bec3fb30f5
 				} else if (ability === 'Lightning Rod') {
 					rejectAbility = template.types.includes('Ground');
 				} else if (ability === 'Limber') {
@@ -1172,20 +1165,13 @@ class RandomTeams extends Dex.ModdedDex {
 					rejectAbility = abilities.includes('Technician') && !!counter['technician'];
 				} else if (ability === 'Prankster') {
 					rejectAbility = !counter['Status'];
-<<<<<<< HEAD
-=======
 				} else if (ability === 'Pressure') {
 					rejectAbility = counter.Status < 1;
->>>>>>> d704b90f5aa865c87828946bc23cf7bec3fb30f5
 				} else if (ability === 'Quick Feet') {
 					rejectAbility = hasMove['bellydrum'];
 				} else if (ability === 'Reckless' || ability === 'Rock Head') {
 					rejectAbility = !counter['recoil'];
-<<<<<<< HEAD
-				} else if (ability === 'Sand Veil') {
-=======
 				} else if (ability === 'Sand Force' || ability === 'Sand Veil') {
->>>>>>> d704b90f5aa865c87828946bc23cf7bec3fb30f5
 					rejectAbility = !teamDetails['sand'];
 				} else if (ability === 'Serene Grace') {
 					rejectAbility = !counter['serenegrace'] || template.id === 'chansey' || template.id === 'blissey';
@@ -1210,11 +1196,7 @@ class RandomTeams extends Dex.ModdedDex {
 				} else if (ability === 'Technician') {
 					rejectAbility = !counter['technician'] || (abilities.includes('Skill Link') && counter['skilllink'] >= counter['technician']);
 				} else if (ability === 'Tinted Lens') {
-<<<<<<< HEAD
-					rejectAbility = counter['damage'] >= counter.damagingMoves.length;
-=======
 					rejectAbility = counter['damage'] >= counter.damagingMoves.length || counter.Status > 2 && !counter.setupType;
->>>>>>> d704b90f5aa865c87828946bc23cf7bec3fb30f5
 				} else if (ability === 'Torrent') {
 					rejectAbility = !counter['Water'];
 				} else if (ability === 'Triage') {
@@ -1222,19 +1204,6 @@ class RandomTeams extends Dex.ModdedDex {
 				} else if (ability === 'Unburden') {
 					rejectAbility = template.isMega || !counter.setupType && !hasMove['acrobatics'];
 				} else if (ability === 'Water Absorb') {
-<<<<<<< HEAD
-					rejectAbility = abilities.includes('Volt Absorb') || (abilities.includes('Water Bubble') && counter['Water']);
-				}
-
-				if (rejectAbility) {
-					if (ability === ability1.name) { // or not
-						ability = ability0.name;
-					} else if (ability1.rating > 1) { // only switch if the alternative doesn't suck
-						ability = ability1.name;
-					}
-				}
-			} while (rejectAbility && ability === ability1.name);
-=======
 					rejectAbility = abilities.includes('Volt Absorb') || (abilities.includes('Water Bubble') && !!counter['Water']);
 				}
 
@@ -1250,7 +1219,6 @@ class RandomTeams extends Dex.ModdedDex {
 					}
 				}
 			} while (rejectAbility);
->>>>>>> d704b90f5aa865c87828946bc23cf7bec3fb30f5
 
 			if (abilities.includes('Chlorophyll') && ability !== 'Solar Power' && hasMove['sunnyday']) {
 				ability = 'Chlorophyll';
