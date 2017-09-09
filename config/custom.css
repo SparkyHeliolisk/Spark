@@ -8,4 +8,10 @@
  * your server.
  */
 /* COLORS START */
+#lobby-userlist-user-sparkyheliolisk strong em, #lobby-userlist-user-sparkyheliolisk strong, #lobby-userlist-user-sparkyheliolisk span, #staff-userlist-user-sparkyheliolisk strong em, #staff-userlist-user-sparkyheliolisk strong, #staff-userlist-user-sparkyheliolisk span, #shadowbanroom-userlist-user-sparkyheliolisk strong em, #shadowbanroom-userlist-user-sparkyheliolisk strong, #shadowbanroom-userlist-user-sparkyheliolisk span, #upperstaff-userlist-user-sparkyheliolisk strong em, #upperstaff-userlist-user-sparkyheliolisk strong, #upperstaff-userlist-user-sparkyheliolisk span, #development-userlist-user-sparkyheliolisk strong em, #development-userlist-user-sparkyheliolisk strong, #development-userlist-user-sparkyheliolisk span, #alfaabyss-userlist-user-sparkyheliolisk strong em, #alfaabyss-userlist-user-sparkyheliolisk strong, #alfaabyss-userlist-user-sparkyheliolisk span, #casino-userlist-user-sparkyheliolisk strong em, #casino-userlist-user-sparkyheliolisk strong, #casino-userlist-user-sparkyheliolisk span{
+color: #34cbff !important;
+}
+.chat.chatmessage-sparkyheliolisk strong {
+color: #34cbff !important;
+}
 /* COLORS END */
