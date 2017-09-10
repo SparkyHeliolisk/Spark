@@ -264,7 +264,7 @@ staff: 'authlist',
 
 	roomdefounder: 'deroomfounder',
 	deroomfounder: function (target, room, user) {
-		if (!room.auth) return this.sendReply("/roomdeowner - This room isn't designed for per-room moderation");
+		if (!room.auth) return this.sendReply("/roomdefounder - This room isn't designed for per-room moderation");
 		target = this.splitTarget(target, true);
 		let targetUser = this.targetUser;
 		let name = this.targetUsername;
@@ -280,17 +280,18 @@ staff: 'authlist',
 		if (room.chatRoomData) Rooms.global.writeChatRoomData();
 	},
 
+	 rl: 'roomleader',
 	roomleader: function (target, room, user) {
 		if (!room.chatRoomData) {
-			return this.sendReply("/roomowner - This room isn't designed for per-room moderation to be added");
+			return this.sendReply("/roomleader - This room isn't designed for per-room moderation to be added");
 		}
 		target = this.splitTarget(target, true);
 		let targetUser = this.targetUser;
 
 		if (!targetUser) return this.sendReply("User '" + this.targetUsername + "' is not online.");
 
-		if (!room.founder) return this.sendReply('The room needs a room founder before it can have a room owner.');
-		if (room.founder !== user.userid && !this.can('makeroom')) return this.sendReply('/roomowner - Access denied.');
+		if (!room.founder) return this.sendReply('The room needs a room founder before it can have a room leader.');
+		if (room.founder !== user.userid && !this.can('makeroom')) return this.sendReply('/roomleader - Access denied.');
 
 		if (!room.auth) room.auth = room.chatRoomData.auth = {};
 
@@ -302,10 +303,10 @@ staff: 'authlist',
 		Rooms.global.writeChatRoomData();
 	},
 
-	roomdeleader: 'deroomowner',
+	roomdeleader: 'deroomleader',
 	deroomleader: function (target, room, user) {
 		if (!room.auth) {
-			return this.sendReply("/roomdeowner - This room isn't designed for per-room moderation");
+			return this.sendReply("/deroomleader - This room isn't designed for per-room moderation");
 		}
 		target = this.splitTarget(target, true);
 		let targetUser = this.targetUser;
