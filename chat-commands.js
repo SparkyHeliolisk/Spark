@@ -1097,7 +1097,9 @@ exports.commands = {
 			return this.errorReply(`User '${this.targetUsername}' is offline and unrecognized, and so can't be promoted.`);
 		}
 
-		if (!this.can('makeroom')) return false;
+		if (!user.can('makeroom')) {
+			if (user.userid !== room.founder) return false;
+		}
 
 		if (!room.auth) room.auth = room.chatRoomData.auth = {};
 
