@@ -425,6 +425,23 @@ staff: 'authlist',
 		targetUser.popup("You have been " + msg);
 		targetUser.leaveRoom(room);
 	},
+
+	ytmusic: "music",
+	music: function (target, room, user, connection, cmd) {
+		if (!target) return this.parse('/help music');
+		if (!this.runBroadcast()) return;
+		let musick = Chat.escapeHTML(target.trim());
+		if(cmd=="ytmusic")
+		{
+			if(musick.substring(0,8)=="https://") musick = musick.substring(7,musick.length);
+			if(musick.substring(0,7)=="http://") musick = musick.substring(6,musick.length);
+			this.sendReplyBox('<audio  style="width: 99.6%;border: 6px solid #F74823; color:green;" controls="" src="http://www.youtubeinmp3.com/fetch/?video='+musick+'" >Your user agent does not support the HTML5 Audio element.</audio>');
+			return;
+		}
+		this.sendReplyBox('<audio  style="width: 99.6%" controls="" src="'+target+'" border: 5px solid #E9DF15; background-color:Blue">Your user agent does not support the HTML5 Audio element.</audio>');
+	},
+	musichelp: ["/music <mp3 link>: Shows a box which can play mp3 music."],
+
 	bonus: 'dailybonus',
 	checkbonus: 'dailybonus',
 	dailybonus: function (target, room, user) {
