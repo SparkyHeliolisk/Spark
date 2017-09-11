@@ -1312,11 +1312,7 @@ class RandomTeams extends Dex.ModdedDex {
 			item = hasMove['destinybond'] ? 'Custap Berry' : ['Leftovers', 'Sitrus Berry'][this.random(2)];
 		} else if (template.species === 'Raichu-Alola' && hasMove['thunderbolt'] && !teamDetails.zMove && this.random(4) < 1) {
 			item = 'Aloraichium Z';
-<<<<<<< HEAD
-		} else if (template.species === 'Zygarde-10%' && hasMove['substitute']) {
-=======
 		} else if (template.species === 'Zygarde-10%' && hasMove['substitute'] && !teamDetails.zMove) {
->>>>>>> 65777466c0b1d5cfcc615b1e06282e82ad2f7ef6
 			item = hasMove['outrage'] ? 'Dragonium Z' : 'Groundium Z';
 		} else if (ability === 'Imposter') {
 			item = 'Choice Scarf';
