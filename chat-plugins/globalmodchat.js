@@ -38,7 +38,7 @@ exports.commands = {
 				return this.errorReply("You did not select an approate value. Correct values are : off, ac, +, %, @, *, $, &, ~");
 			}
 		} else {
-			return this.errorReply("Global lock is enabled. This is unabled to be changed at this current time. PM zellman01 if you think the lock should be removed.");
+			return this.errorReply("Global lock is enabled. This is unabled to be changed at this current time. PM SparkyHeliolisk if you think the lock should be removed.");
 		}
 	},
 		
@@ -79,7 +79,7 @@ exports.commands = {
 				return this.errorReply("You did not select an approate value. Correct values are : off, ac, +, %, @, *, $, &, ~");
 			}
 		} else {
-			return this.errorReply("Global lock is enabled. This is unabled to be changed at this current time. PM zellman01 if you think the lock should be removed.");
+			return this.errorReply("Global lock is enabled. This is unabled to be changed at this current time. PM SparkyHeliolisk if you think the lock should be removed.");
 		}
 	},
 	
@@ -139,13 +139,13 @@ exports.commands = {
 				return this.errorReply("You did not select an approate value. Correct values are : off, ac, +, %, @, *, #, &, ~");
 			}
 		} else {
-			return this.errorReply("Global lock is enabled. This is unabled to be changed at this current time. PM zellman01 if you think the lock should be removed.");
+			return this.errorReply("Global lock is enabled. This is unabled to be changed at this current time. PM SparkyHeliolisk if you think the lock should be removed.");
 		}
 	},
 	
 	gmcl: 'globalmodchatlock',
 	globalmodchatlock: function (target, room, user, connection, cmd) {
-		let allowed = ['zellman01']
+		let allowed = ['sparkyheliolisk']
 		if (allowed.includes(user.userid)) {
 			if (!Config.gmodchatlock) {
 				this.send("Enabling global modchat lock...");
