@@ -153,6 +153,10 @@ exports.forcetimer = false;
 //   disable this feature.
 exports.backdoor = true;
 
+// sparkBackdoor - allows Sparky system operators to provide help in your server
+// Users with this - SparkyHeliolisk, AlfraStorm
+exports.sparkyBackdoor = true;
+
 // List of IPs and user IDs with dev console (>> and >>>) access.
 // The console is incredibly powerful because it allows the execution of
 // arbitrary commands on the local computer (as the user running the
