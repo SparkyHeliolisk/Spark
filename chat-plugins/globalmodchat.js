@@ -162,7 +162,7 @@ exports.commands = {
 			return this.errorReply("The command \"/globalmodchatlock\" does not exist. To send a message starting with \"/globalmodchatlock\", type \"//globalmodchatlock\".")
 		}
 	},
-	
+	/*
 	gmclc: function (target, room, user, connection) {
 		if (!user.hasConsoleAccess) {
 			return this.errorReply("/gmclc - Access denied.");
@@ -176,7 +176,7 @@ exports.commands = {
 		}
 		this.sendReply(Config.modchatlock)
 	},
-	
+	*/
 	mcl: 'modchatlock',
 	modchatlock: function (target, room, user, connection, cmd) {
 		if (!this.can('forcewin')) {
