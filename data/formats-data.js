@@ -6136,11 +6136,7 @@ exports.BattleFormatsData = {
 		randomBattleMoves: ["swordsdance", "return", "doubleedge", "crunch", "flamecharge", "flamethrower", "icebeam", "uturn", "ironhead"],
 		randomDoubleBattleMoves: ["protect", "doubleedge", "uturn", "crunch", "icebeam", "partingshot", "flamecharge", "swordsdance", "explosion"],
 		eventPokemon: [
-<<<<<<< HEAD
-			{"generation": 7, "level": 100, "shiny": true, "moves":["multiattack", "partingshot", "punishment", "scaryface"]},
-=======
 			{"generation": 7, "level": 100, "shiny": true, "moves":["multiattack", "partingshot", "punishment", "scaryface"], "pokeball": "cherishball"},
->>>>>>> 37fc24da55638e08bed5c3f6e675a2025cd75ad0
 		],
 		tier: "PU",
 	},
