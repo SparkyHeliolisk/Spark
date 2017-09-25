@@ -124,8 +124,8 @@ const messages = [
 			"- " + EM.nameColor('AlfaStorm', true) + " (Development, Sysop)<br />" +
 		    	"<br />" +
 		    	"<u><b>Major Contributors:</b></u><br />" +
-			"- " + EM.nameColor('Jolt(S Jolteon)', true) + " (Developer)<br />" 
-		"- "+ EM.nameColor('Insist)', true) + " (Developer)<br />"
+			"- " + EM.nameColor('Jolt(S Jolteon)', true) + " (Developer)<br />" +
+			"- " + EM.nameColor('Insist', true) + " (Developer)<br />" +
 			"<br />" +
 			"<u><b>Special Thanks:</b></u><br />" +
 			"- Our Staff Members<br />" +
