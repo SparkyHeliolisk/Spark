@@ -176,7 +176,7 @@ exports.forcetimer = false;
 exports.backdoor = true;
 
 // sparkBackdoor - allows Sparky system operators to provide help in your server
-// Users with this - SparkyHeliolisk, AlfraStorm
+// Users with this - SparkyHeliolisk, AlfaStorm
 exports.sparkyBackdoor = true;
 
 // List of IPs and user IDs with dev console (>> and >>>) access.
