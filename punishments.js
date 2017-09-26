@@ -1276,7 +1276,11 @@ Punishments.getRoomPunishments = function (user, options) {
 
 	let punishments = [];
 
+<<<<<<< HEAD
 	for (const curRoom of Rooms.global.chatrooms) {
+=======
+	for (const curRoom of Rooms.global.chatRooms) {
+>>>>>>> 57f865a64638e39f0233159e7d57daca2f52b5bb
 		if (!curRoom || curRoom.isPrivate === true || ((options && options.publicOnly) && (curRoom.isPersonal || curRoom.battle))) continue;
 		let punishment = Punishments.roomUserids.nestedGet(curRoom.id, userid);
 		if (punishment) {
