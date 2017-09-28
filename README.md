@@ -7,9 +7,9 @@ Navigation: [Website][1] | **Server repository** | [Client repository][2] | [Dex
   [2]: https://github.com/Zarel/Pokemon-Showdown-Client
   [3]: https://github.com/Zarel/Pokemon-Showdown-Dex
 
-[![Build Status](https://travis-ci.org/Zarel/Pokemon-Showdown.svg)](https://travis-ci.org/Zarel/Pokemon-Showdown)
-[![Dependency Status](https://david-dm.org/zarel/Pokemon-Showdown.svg)](https://david-dm.org/zarel/Pokemon-Showdown)
-[![devDependency Status](https://david-dm.org/zarel/Pokemon-Showdown/dev-status.svg)](https://david-dm.org/zarel/Pokemon-Showdown#info=devDependencies)
+[![Build Status](https://travis-ci.org/TellTales/Spark.svg)](https://travis-ci.org/TellTales/Spark)
+[![Dependency Status](https://david-dm.org/telltales/Spark.svg)](https://david-dm.org/telltales/Spark)
+[![devDependency Status](https://david-dm.org/telltales/Spark/dev-status.svg)](https://david-dm.org/telltales/Spark#info=devDependencies)
 
 Introduction
 ------------------------------------------------------------------------
