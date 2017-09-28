@@ -55,14 +55,24 @@ exports.Formats = [
 	{
 		name: "[Gen 7] UU",
 		desc: [
-			"&bullet; <a href=\"https://www.smogon.com/forums/threads/3614035/\">UU Metagame Discussion</a>",
+			"&bullet; <a href=\"https://www.smogon.com/forums/threads/3616332/\">UU Metagame Discussion</a>",
 			"&bullet; <a href=\"https://www.smogon.com/forums/threads/3613279/\">UU Viability Rankings</a>",
 			"&bullet; <a href=\"https://www.smogon.com/forums/threads/3591880/\">UU Sample Teams</a>",
 		],
 
 		mod: 'gen7',
+		searchShow: false,
 		ruleset: ['[Gen 7] OU'],
 		banlist: ['OU', 'BL', 'Drizzle', 'Mewnium Z'],
+	},
+	{
+		name: "[Gen 7] UU (suspect test)",
+		desc: ["&bullet; <a href=\"https://www.smogon.com/forums/threads/3616332/\">UU Suspect Test</a>"],
+
+		mod: 'gen7',
+		challengeShow: false,
+		ruleset: ['[Gen 7] UU'],
+		banlist: [],
 	},
 	{
 		name: "[Gen 7] RU",
@@ -110,11 +120,20 @@ exports.Formats = [
 	},
 	{
 		name: "[Gen 7] PU",
-		desc: ["&bullet; <a href=\"https://www.smogon.com/forums/threads/3611417/\">PU Metagame Discussion</a>"],
+		desc: ["&bullet; <a href=\"https://www.smogon.com/forums/threads/3614120/\">PU Metagame Discussion</a>"],
 
 		mod: 'gen7',
+		searchShow: false,
 		ruleset: ['[Gen 7] NU'],
 		banlist: ['NU', 'BL4'],
+	},
+	{
+		name: "[Gen 7] PU (suspect test)",
+		desc: ["&bullet; <a href=\"https://www.smogon.com/forums/threads/3614120/\">PU Suspect Test</a>"],
+
+		mod: 'gen7',
+		ruleset: ['[Gen 7] PU'],
+		unbanlist: ['Hariyama'],
 	},
 	{
 		name: "[Gen 7] LC",
@@ -213,24 +232,6 @@ exports.Formats = [
 			'Landorus-Therian', 'Lucario', 'Mamoswine', 'Mimikyu', 'Porygon2', 'Salamence', 'Tapu Fini', 'Tapu Koko', 'Tapu Lele',
 		],
 		requirePentagon: true,
-	},
-	{
-		name: "[Gen 7] Mega Melee",
-		desc: ["&bullet; <a href=\"https://www.smogon.com/forums/threads/3613480/\">Mega Melee</a>"],
-
-		mod: 'gen7',
-		maxForcedLevel: 50,
-		teamLength: {
-			validate: [3, 6],
-			battle: 1,
-		},
-		ruleset: ['Pokemon', 'Standard GBU', 'Team Preview'],
-		onValidateSet(set, format) {
-			let template = this.getTemplate(set.species || set.name);
-			if (!template.otherFormes || !this.getTemplate(template.otherFormes[0]).isMega) {
-				return [`${set.name || set.species} can't Mega Evolve and is banned in ${format.name}.`];
-			}
-		},
 	},
 	{
 		name: "[Gen 7] Custom Game",
@@ -433,18 +434,8 @@ exports.Formats = [
 		],
 
 		mod: 'gen7',
-		searchShow: false,
 		ruleset: ['Pokemon', 'Ability Clause', 'OHKO Clause', 'Evasion Moves Clause', 'CFZ Clause', 'Endless Battle Clause', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod'],
 		banlist: ['Arena Trap', 'Huge Power', 'Innards Out', 'Magnet Pull', 'Moody', 'Parental Bond', 'Protean', 'Pure Power', 'Shadow Tag', 'Stakeout', 'Water Bubble', 'Wonder Guard', 'Gengarite', 'Chatter', 'Comatose + Sleep Talk'],
-	},
-	{
-		name: "[Gen 7] Balanced Hackmons (suspect test)",
-		desc: ["&bullet; <a href=\"https://www.smogon.com/forums/threads/3614555/\">BH7 Suspect #4: Primal Groudon</a>"],
-
-		mod: 'gen7',
-		challengeShow: false,
-		ruleset: ['[Gen 7] Balanced Hackmons'],
-		banlist: ['Groudon-Primal'],
 	},
 	{
 		name: "[Gen 7] 1v1",
