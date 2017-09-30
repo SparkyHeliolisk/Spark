@@ -129,7 +129,8 @@ const messages = [
 			"<br />" +
 			"<u><b>Special Thanks:</b></u><br />" +
 			"- Our Staff Members<br />" +
-			"- Our Regular Users<br />";
+			"- Our Regular Users<br />" +
+		    	"- SpacialGaze for most of the plugins<br />";
 		user.popup(popup);
 	},
 	 
