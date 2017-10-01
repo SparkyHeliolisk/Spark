@@ -122,11 +122,17 @@ const messages = [
 			"<u><b>Server Maintainers:</u></b><br />" +
 			"- " + EM.nameColor('SparkyHeliolisk', true) + " (Owner, Sysop)<br />" +
 			"- " + EM.nameColor('AlfaStorm', true) + " (Development, Sysop)<br />" +
+		    
 		    	"<br />" +
 		    	"<u><b>Major Contributors:</b></u><br />" +
 			"- " + EM.nameColor('Jolt(S Jolteon)', true) + " (Developer)<br />" +
-			"- " + EM.nameColor('Insist', true) + " (Developer)<br />" +
 			"<br />" +
+		    
+		        "<br />" +
+		    	"<u><b>Minor Contributors:</b></u><br />" +
+			"- " + EM.nameColor('Insist)', true) + " (Developer)<br />" +
+			"<br />" +
+		    
 			"<u><b>Special Thanks:</b></u><br />" +
 			"- Our Staff Members<br />" +
 			"- Our Regular Users<br />" +
