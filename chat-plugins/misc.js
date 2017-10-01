@@ -128,7 +128,7 @@ const messages = [
 			"<br />" +
 		    	"<u><b>Minor Contributors:</b></u><br />" +
 			"- " + EM.nameColor('Insist)', true) + " (Developer)<br />" +
-			
+			"<br/>"
 		    
 			"<u><b>Special Thanks:</b></u><br />" +
 			"- Our Staff Members<br />" +
