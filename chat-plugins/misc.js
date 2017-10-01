@@ -127,9 +127,8 @@ const messages = [
 			"- " + EM.nameColor('Jolt(S Jolteon)', true) + " (Developer)<br />" +
 			"<br />" +
 		    	"<u><b>Minor Contributors:</b></u><br />" +
-			"- " + EM.nameColor('Insist)', true) + " (Developer)<br />" +
-			"<br/>"
-		    
+		    	"- " + EM.nameColor('Insist)', true) + " (Developer)<br />" +
+		    	"<br />" +
 			"<u><b>Special Thanks:</b></u><br />" +
 			"- Our Staff Members<br />" +
 			"- Our Regular Users<br />" +
