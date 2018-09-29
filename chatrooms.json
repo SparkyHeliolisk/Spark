@@ -1,0 +1,6 @@
+[
+{"title":"Lobby","isOfficial":true,"autojoin":true},
+{"title":"Staff","isPrivate":true,"staffRoom":true,"staffAutojoin":true},
+{"title":"Upper Staff","isPrivate":true,"staffRoom":true,"staffAutojoin":true},
+{"title":"Shadow Ban Room","isPrivate":true,"staffRoom":true,"staffAutojoin":true,"addedUsers":{}}
+]
